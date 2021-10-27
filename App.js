@@ -7,7 +7,7 @@ export default function App() {
   return (
     <Provider store={Store}>
     <View style={styles.body}>
-      <Text> testing</Text>
+      <Text style={styles.text}> testing abc 123 </Text>
     </View>
     </Provider>
 
@@ -18,10 +18,14 @@ const styles = StyleSheet.create({
 marginTop:40,
 flex:1,
 justifyContent:"center",
-
-
-
 alignItems:"center"
+
+  },
+
+  text:{
+fontFamily:'Nunito-ExtraBold',
+
+fontSize:40
 
 
   }
