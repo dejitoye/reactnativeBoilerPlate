@@ -10,12 +10,15 @@ import ScreenB from './screens/ScreenB';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
 const Stack = createStackNavigator()
 const Tabs = createBottomTabNavigator()
 const Taba = createMaterialBottomTabNavigator();
 const Tab = createMaterialTopTabNavigator();
+
+const Drawer = createDrawerNavigator();
 
 
 
@@ -26,37 +29,18 @@ export default function App() {
     <Provider store={Store}>
 
       <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+    <Drawer.Navigator>
+      <Drawer.Screen 
+      name="Screen-A"
+      component={ScreenA}
+      />
 
-            if (route.name === 'Screen-A') {
-              iconName = focused
-                ? 'ios-information-circle'
-                : 'ios-information-circle-outline';
-            } else if (route.name === 'Screen-B') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
-            }
 
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
-        })}
-      >
-<Tab.Screen 
-name="Screen-A"
-
-component={ScreenA}
-/>
-<Tab.Screen 
-name="Screen-B"
-
-component={ScreenB}
-/>
-    </Tab.Navigator>
+      <Drawer.Screen
+      name="Screen-B"
+      component={ScreenB}
+      />
+    </Drawer.Navigator>
     </NavigationContainer>
 
     </Provider>
